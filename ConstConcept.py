@@ -8,7 +8,8 @@ import numpy as np
 from math import pi,ceil,sin,cos,acos,asin
 
 # minimum number of satellites required per plane to have visibility at least once per day
-# spherical earth and circular orbit assumption
+# spherical earth and circular orbit assumption (2BP)
+# Orbital phasing are independant of the phasing in the neighboring planes
 def minSatperPlane(h,theta, i=pi/2,latitude = 0 , max_allow_gap=24*3600,miu = 398600.44,Re = 6378.14,omega_e = 7.292115e-5):
 
     if abs(pi/2-i)>abs(pi/2-latitude):

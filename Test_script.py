@@ -17,16 +17,17 @@ import ConstConcept
 # for a desired latitude band. This program assumes 2BP problem with spherical 
 # Earth. The constellation contains symmetrical circular orbits only.
 # Further analysis should be done to visualize the constellation.
+# Orbital phasing are independant of the phasing in the neighboring planes
 
 
 ### Inputs
 
 i = radians(90) # Desired satellite inclination [rad]
-h = 834.5 # Maximum satellite altitude [km]
-latitude_band = (radians(30),radians(50)) # Desired latitude band between 0 and 90 [deg]
-max_gap_time = (5)*3600 # Maximum gap time in target coverage [s]
+h = 600 # Maximum satellite altitude [km]
+latitude_band = (radians(0),radians(90)) # Desired latitude band between 0 and 90 [deg]
+max_gap_time = (0.5)*3600 # Maximum gap time in target coverage [s]
 ### Setting either target minimum elevation angle or the satellite sensor half-angle
-min_el = radians(5)
+min_el = radians(40)
 #beta = radians(45)
 
 
@@ -98,7 +99,7 @@ print("Orbits altitude = ", h, " [km]")
 print("Orbits inclination = ", degrees(i), " [deg]"," (Required minimum Inc = ", ceil(degrees(latitude_band[-1]))," [deg])")
 print("Minimum target elevation angle = ", degrees(el), " [deg]")
 print("Satellite FOV half angle = ", degrees(beta), " [deg]")
-print("Maximum visibility gap time = ", ceil(max_gap_time/3600), " [hr]")
+print("Maximum visibility gap time = ", (max_gap_time/3600), " [hr]")
 
 print("\nSuggested constellation:\n")
 print("Total number of satellites = ", P*min_num_sat)
